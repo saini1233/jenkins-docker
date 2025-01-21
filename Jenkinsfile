@@ -46,3 +46,41 @@ pipeline {
   //   }
   // }
 }
+
+
+// pipeline {
+//     agent any
+
+//     environment {
+//         DOCKER_IMAGE = "myapp"
+//         DOCKER_TAG = "v1"
+//         SSH_KEY = "~/.ssh/authorized_keys"
+//         TOMCAT_IMAGE = "tomcat:latest"
+//     }
+
+//     tools {
+//         // Install the Maven version configured as "M3" and add it to the path.
+//         maven "M3"
+//     }
+
+//     stages {
+//         stage('Build') {
+//             steps {
+//                 // Get some code from a GitHub repository
+//                 git branch: 'main', url: 'https://github.com/saini1233/jenkins-docker.git'
+
+//                 // Run Maven on a Unix agent.
+//                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
+//             }
+//         }
+
+//         stage('Docker Build') {
+//             steps {
+//                 script {
+//                         sh 'scp -o StrictHostKeyChecking=no Dockerfile ./target/*.jar  ubuntu@98.83.207.43:'
+//                         sh 'ssh -o StrictHostKeyChecking=no ubuntu@98.83.207.43 "sudo docker build -t $DOCKER_IMAGE:$DOCKER_TAG ."'
+//                 }
+//             }
+//         }
+//     }
+// }
