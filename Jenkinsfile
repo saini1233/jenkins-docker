@@ -1,9 +1,9 @@
 pipeline {
   agent any
   environment {
-    DOCKER_IMAGE = "ubuntu"
-    DOCKER_TAG = "javacode"
-    WAR_FILE = "java-app.war"
+    DOCKER_IMAGE = "myapps"
+    DOCKER_TAG = "v1"
+    WAR_FILE = "*.war"
   }
   stages {
     stage('Clone Repository') {
