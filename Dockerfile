@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-RUN apt update && apt install -y tomcat
+RUN apt update && apt install -y tomcat9
 
 # Set working directory for any following commands
 WORKDIR /app
