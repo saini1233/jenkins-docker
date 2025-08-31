@@ -31,7 +31,7 @@ pipeline {
       steps {
         script {
           sshagent(['dockerserver']) {
-            sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.83.105.94 "docker run -d --name container1 -v $WORKSPACE/$WAR_FILE:/usr/local/tomcat/webapps/ROOT.war $DOCKER_IMAGE:$DOCKER_TAG"'
+            sh 'ssh -o StrictHostKeyChecking=no Dockerserverusername@dockerIP "docker run -d --name container1 -v $WORKSPACE/$WAR_FILE:/usr/local/tomcat/webapps/ROOT.war $DOCKER_IMAGE:$DOCKER_TAG"'
           }
         }
       }
@@ -66,7 +66,7 @@ pipeline {
 //         stage('Build') {
 //             steps {
 //                 // Get some code from a GitHub repository
-//                 git branch: 'main', url: 'https://github.com/saini1233/jenkins-docker.git'
+//                 git branch: 'main', url: 'YOUR_GIT_URL/jenkins-docker.git'
 
 //                 // Run Maven on a Unix agent.
 //                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
@@ -76,8 +76,8 @@ pipeline {
 //         stage('Docker Build') {
 //             steps {
 //                 script {
-//                         sh 'scp -o StrictHostKeyChecking=no Dockerfile ./target/*.jar  ubuntu@98.83.207.43:'
-//                         sh 'ssh -o StrictHostKeyChecking=no ubuntu@98.83.207.43 "sudo docker build -t $DOCKER_IMAGE:$DOCKER_TAG ."'
+//                         sh 'scp -o StrictHostKeyChecking=no Dockerfile ./target/*.jar  Dockerserverusername@dockerIP:'
+//                         sh 'ssh -o StrictHostKeyChecking=no Dockerserverusername@dockerIP "sudo docker build -t $DOCKER_IMAGE:$DOCKER_TAG ."'
 //                 }
 //             }
 //         }
