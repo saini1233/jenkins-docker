@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Clone Repository') {
       steps {
-        sh 'git clone -b main https://github.com/saini1233/jenkins-docker.git'
+        sh 'git clone -b main YOUR_GIT_URL/jenkins-docker.git'
       }
     }
     stage('Build') {
